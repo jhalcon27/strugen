@@ -1,0 +1,256 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  type?: string;
+  canonicalURL?: string;
+  article?: {
+    publishedTime?: string;
+    author?: string;
+    tags?: string[];
+  };
+}
+
+const {
+  title,
+  description = 'Strugen — A personal blog by Jhonatan Serna. Notes on technology, finance, philosophy, and what it means to be alive for less than 100 years.',
+  image = '/images/profile_pic.jpg',
+  type = 'website',
+  canonicalURL = Astro.url.href,
+  article,
+} = Astro.props;
+
+const siteURL = 'https://strugen.com';
+const fullTitle = title.includes('Strugen') ? title : `${title} | Strugen`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Primary Meta Tags -->
+    <title>{fullTitle}</title>
+    <meta name="title" content={fullTitle} />
+    <meta name="description" content={description} />
+    <meta name="author" content="Jhonatan Serna" />
+    <meta name="robots" content="index, follow" />
+    <meta name="keywords" content="Jhonatan Serna, strugen, personal blog, technology, finance, philosophy, consciousness, physics, notes, essays" />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={`${siteURL}${image}`} />
+    <meta property="og:site_name" content="Strugen" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={fullTitle} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={`${siteURL}${image}`} />
+
+    <!-- Article specific -->
+    {article?.publishedTime && <meta property="article:published_time" content={article.publishedTime} />}
+    {article?.author && <meta property="article:author" content={article.author} />}
+    {article?.tags?.map(tag => <meta property="article:tag" content={tag} />)}
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(
+      type === 'article' && article ? {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": fullTitle,
+        "description": description,
+        "url": canonicalURL,
+        "image": `${siteURL}${image}`,
+        "datePublished": article.publishedTime,
+        "author": {
+          "@type": "Person",
+          "name": article.author || "Jhonatan Serna",
+          "url": siteURL
+        },
+        "publisher": {
+          "@type": "Person",
+          "name": "Jhonatan Serna",
+          "url": siteURL
+        }
+      } : {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": `${siteURL}/#website`,
+            "name": "Strugen",
+            "url": siteURL,
+            "description": "A personal blog by Jhonatan Serna. Notes on technology, finance, philosophy, and what it means to be alive.",
+            "publisher": { "@id": `${siteURL}/#person` }
+          },
+          {
+            "@type": "Person",
+            "@id": `${siteURL}/#person`,
+            "name": "Jhonatan Serna",
+            "url": siteURL,
+            "email": "strugen@proton.me",
+            "description": "Physicist turned banker. Writing about technology, finance, philosophy, and the experience of being alive for less than 100 years.",
+            "sameAs": [
+              "https://x.com/strugen_eth",
+              "https://instagram.com/strugen",
+              "https://www.digitalpsychedelics.com"
+            ]
+          },
+          {
+            "@type": "WebPage",
+            "@id": `${canonicalURL}#webpage`,
+            "url": canonicalURL,
+            "name": fullTitle,
+            "description": description,
+            "isPartOf": { "@id": `${siteURL}/#website` },
+            "about": { "@id": `${siteURL}/#person` }
+          }
+        ]
+      }
+    )} />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body class="grid-bg min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="navbar-blur fixed top-0 left-0 right-0 z-50">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-14">
+          <!-- Logo -->
+          <a href="/" class="flex items-center gap-2 group">
+            <span class="font-display font-bold text-lg text-s-text group-hover:text-s-emerald transition-colors tracking-tight">strugen</span>
+            <span class="text-s-emerald font-mono text-lg leading-none">.</span>
+          </a>
+
+          <!-- Desktop Nav -->
+          <div class="hidden md:flex items-center gap-8">
+            <a href="/#writing" class="text-s-muted hover:text-s-text transition-colors text-sm font-medium tracking-wide">Writing</a>
+            <a href="/about" class="text-s-muted hover:text-s-text transition-colors text-sm font-medium tracking-wide">About</a>
+            <a href="/contact" class="text-s-muted hover:text-s-emerald transition-colors text-sm font-medium tracking-wide">Contact</a>
+          </div>
+
+          <!-- Mobile menu button -->
+          <button id="mobile-menu-btn" class="md:hidden text-s-muted hover:text-s-text transition-colors p-2" aria-label="Toggle menu">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+              <path id="close-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Mobile Nav -->
+        <div id="mobile-menu" class="hidden md:hidden pb-4 border-t border-s-border mt-2 pt-4">
+          <div class="flex flex-col gap-4">
+            <a href="/#writing" class="text-s-muted hover:text-s-text transition-colors text-sm font-medium">Writing</a>
+            <a href="/about" class="text-s-muted hover:text-s-text transition-colors text-sm font-medium">About</a>
+            <a href="/contact" class="text-s-muted hover:text-s-emerald transition-colors text-sm font-medium">Contact</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main content -->
+    <main class="pt-14">
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-s-border mt-20">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+          <!-- Brand + tagline -->
+          <div>
+            <a href="/" class="font-display font-bold text-base text-s-text hover:text-s-emerald transition-colors">strugen</a>
+            <p class="text-s-muted text-xs mt-1 max-w-xs leading-relaxed">
+              Notes on technology, finance, and philosophy. Here for less than 100 years — documenting the ride.
+            </p>
+          </div>
+
+          <!-- Links -->
+          <div class="flex flex-col sm:flex-row gap-6 sm:gap-10">
+            <div class="flex flex-col gap-2">
+              <a href="/#writing" class="text-s-muted hover:text-s-text transition-colors text-xs">Writing</a>
+              <a href="/about" class="text-s-muted hover:text-s-text transition-colors text-xs">About</a>
+              <a href="/contact" class="text-s-muted hover:text-s-text transition-colors text-xs">Contact</a>
+            </div>
+            <div class="flex flex-col gap-2">
+              <a href="mailto:strugen@proton.me" class="text-s-muted hover:text-s-emerald transition-colors text-xs">strugen@proton.me</a>
+              <a href="https://x.com/strugen_eth" target="_blank" rel="noopener noreferrer" class="text-s-muted hover:text-s-text transition-colors text-xs">X / Twitter</a>
+              <a href="https://instagram.com/strugen" target="_blank" rel="noopener noreferrer" class="text-s-muted hover:text-s-text transition-colors text-xs">Instagram</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-divider my-6"></div>
+
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+          <p class="text-s-muted text-xs">
+            &copy; {new Date().getFullYear()} Jhonatan Serna. All rights reserved.
+          </p>
+          <div class="flex items-center gap-2 text-s-muted text-xs font-mono">
+            <span class="w-1.5 h-1.5 rounded-full bg-s-emerald pulse-glow inline-block"></span>
+            <span>strugen.com</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Mobile menu script -->
+    <script>
+      const btn = document.getElementById('mobile-menu-btn');
+      const menu = document.getElementById('mobile-menu');
+      const menuIcon = document.getElementById('menu-icon');
+      const closeIcon = document.getElementById('close-icon');
+
+      btn?.addEventListener('click', () => {
+        const isOpen = !menu?.classList.contains('hidden');
+        menu?.classList.toggle('hidden');
+        menuIcon?.classList.toggle('hidden', !isOpen);
+        closeIcon?.classList.toggle('hidden', isOpen);
+      });
+
+      menu?.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          menu.classList.add('hidden');
+          menuIcon?.classList.remove('hidden');
+          closeIcon?.classList.add('hidden');
+        });
+      });
+    </script>
+
+    <!-- Scroll animation observer -->
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+      );
+
+      document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+  </body>
+</html>

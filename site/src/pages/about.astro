@@ -1,0 +1,97 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="About | Strugen"
+  description="About Jhonatan Serna — physicist turned banker, writing about technology, finance, philosophy, and the experience of being alive."
+>
+  <section class="py-16">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Breadcrumb -->
+      <nav class="flex items-center gap-2 text-s-muted text-xs mb-10 font-mono">
+        <a href="/" class="hover:text-s-emerald transition-colors">Home</a>
+        <span>/</span>
+        <span class="text-s-muted-light">About</span>
+      </nav>
+
+      <!-- Header -->
+      <div class="mb-12 fade-in">
+        <span class="s-tag mb-4 inline-block">About</span>
+        <h1 class="font-display font-bold text-4xl sm:text-5xl text-s-text leading-tight mb-4">
+          Jhonatan <span class="gradient-text">Serna</span>
+        </h1>
+        <p class="text-s-muted text-lg leading-relaxed">
+          Physicist turned banker. Writing about technology, finance, philosophy, and what it means to be alive.
+        </p>
+      </div>
+
+      <div class="section-divider mb-12"></div>
+
+      <!-- Main content -->
+      <div class="prose-s fade-in" style="transition-delay: 0.1s">
+
+        <h2>The short version</h2>
+        <p>
+          I studied physics. I work in banking. I spend most of my free time reading, thinking, and writing about things that fascinate me — technology, markets, consciousness, and the nature of existence.
+        </p>
+        <p>
+          This blog is a personal archive. I write to think clearly, to remember what I've learned, and to leave something behind. I have less than 100 years on this planet — probably much less — and I want to make the most of the time I have to understand it.
+        </p>
+
+        <h2>What I think about</h2>
+        <p>
+          My interests don't fit neatly into one box, which is probably why I started writing. Some of the things I keep coming back to:
+        </p>
+        <ul>
+          <li><strong style="color: #e8e8e8;">Technology</strong> — AI, software, the future of computing, and what it means for how we live and work.</li>
+          <li><strong style="color: #e8e8e8;">Finance</strong> — Markets, money, crypto, and how capital shapes the world and human behavior.</li>
+          <li><strong style="color: #e8e8e8;">Philosophy</strong> — Consciousness, existence, meaning, and the questions that don't have clean answers.</li>
+          <li><strong style="color: #e8e8e8;">Physics</strong> — The deep structure of reality, from quantum mechanics to cosmology.</li>
+        </ul>
+
+        <h2>Why "Strugen"?</h2>
+        <p>
+          It's a handle I've used for years. It doesn't mean anything in particular — it's just mine. You'll find me as <code>strugen</code> or <code>strugen_eth</code> across most platforms.
+        </p>
+
+        <h2>The other blog</h2>
+        <p>
+          I also write at <a href="https://www.digitalpsychedelics.com" target="_blank" rel="noopener noreferrer">Digital Psychedelics</a>, which focuses more specifically on consciousness, physics, and the nature of reality. This blog is broader — more personal, more varied.
+        </p>
+
+        <h2>Get in touch</h2>
+        <p>
+          If something I've written resonates with you, or if you want to push back on something, I'd genuinely like to hear from you. You can reach me at <a href="mailto:strugen@proton.me">strugen@proton.me</a> or through the <a href="/contact">contact page</a>.
+        </p>
+
+      </div>
+
+      <div class="section-divider my-12"></div>
+
+      <!-- Quick facts -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 fade-in" style="transition-delay: 0.2s">
+        <div class="glass-card rounded-lg p-5">
+          <p class="text-s-muted font-mono text-xs uppercase tracking-widest mb-2">Background</p>
+          <p class="text-s-text text-sm font-medium">Physics → Banking</p>
+        </div>
+        <div class="glass-card rounded-lg p-5">
+          <p class="text-s-muted font-mono text-xs uppercase tracking-widest mb-2">Writing since</p>
+          <p class="text-s-text text-sm font-medium">2023</p>
+        </div>
+        <div class="glass-card rounded-lg p-5">
+          <p class="text-s-muted font-mono text-xs uppercase tracking-widest mb-2">Also at</p>
+          <a href="https://www.digitalpsychedelics.com" target="_blank" rel="noopener noreferrer" class="text-s-emerald text-sm font-medium hover:text-s-emerald-bright transition-colors">digitalpsychedelics.com</a>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="mt-10 flex flex-wrap gap-4 fade-in" style="transition-delay: 0.3s">
+        <a href="/#writing" class="btn-primary">Read the writing</a>
+        <a href="/contact" class="btn-outline">Get in touch</a>
+      </div>
+
+    </div>
+  </section>
+</Layout>

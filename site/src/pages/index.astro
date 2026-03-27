@@ -1,0 +1,205 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const posts = [
+  {
+    slug: 'on-being-here',
+    title: 'On Being Here',
+    subtitle: 'A note on why I write',
+    excerpt: 'I have less than 100 years on this planet. Probably much less. Writing is how I make sense of what I see, think, and feel — and if someone else finds it useful, that\'s a bonus.',
+    date: '2026-03-27',
+    readTime: '3 min read',
+    tags: ['Philosophy', 'Personal'],
+  },
+];
+
+const categories = [
+  { name: 'Technology', description: 'AI, software, the future of computing, and what it means for us.' },
+  { name: 'Finance', description: 'Markets, money, crypto, and how capital shapes the world.' },
+  { name: 'Philosophy', description: 'Consciousness, existence, meaning, and the hard questions.' },
+];
+---
+
+<Layout
+  title="Strugen | Notes on Technology, Finance & Philosophy"
+  description="A personal blog by Jhonatan Serna. Notes on technology, finance, philosophy, and what it means to be alive for less than 100 years."
+>
+  <!-- Hero Section -->
+  <section class="relative min-h-[80vh] flex items-center overflow-hidden">
+    <!-- Background gradient orbs — subtle -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <div class="absolute top-1/3 left-1/4 w-80 h-80 rounded-full bg-s-emerald opacity-[0.03] blur-3xl"></div>
+      <div class="absolute bottom-1/3 right-1/4 w-80 h-80 rounded-full bg-s-gold opacity-[0.03] blur-3xl"></div>
+    </div>
+
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+      <div class="max-w-2xl">
+        <!-- Label -->
+        <div class="flex items-center gap-3 mb-8 fade-in">
+          <span class="s-tag">Personal Blog</span>
+          <span class="text-s-muted text-xs font-mono">// strugen.com</span>
+        </div>
+
+        <!-- Main headline -->
+        <h1 class="font-display font-bold text-5xl sm:text-6xl lg:text-7xl leading-[1.05] mb-6 fade-in" style="transition-delay: 0.1s">
+          <span class="text-s-text">Jhonatan</span><br/>
+          <span class="gradient-text">Serna</span>
+        </h1>
+
+        <!-- Description -->
+        <p class="text-s-muted text-lg sm:text-xl leading-relaxed mb-4 fade-in" style="transition-delay: 0.2s">
+          Physicist turned banker. Writing about <span class="text-s-text">technology</span>, <span class="text-s-gold">finance</span>, and <span class="text-s-emerald">philosophy</span>.
+        </p>
+
+        <p class="text-s-muted text-base leading-relaxed mb-10 max-w-lg fade-in" style="transition-delay: 0.3s">
+          I have less than 100 years here. This is where I document what I think and learn — mostly for myself, but you're welcome to read along.
+        </p>
+
+        <!-- CTAs -->
+        <div class="flex flex-wrap gap-4 fade-in" style="transition-delay: 0.4s">
+          <a href="#writing" class="btn-primary">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+            </svg>
+            Read the writing
+          </a>
+          <a href="/about" class="btn-outline">
+            About me
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 hidden sm:flex flex-col items-center gap-2 text-s-muted text-xs fade-in" style="transition-delay: 0.6s">
+      <span class="font-mono tracking-widest text-[10px]">SCROLL</span>
+      <div class="w-px h-10 bg-gradient-to-b from-s-emerald/40 to-transparent"></div>
+    </div>
+  </section>
+
+  <!-- Section divider -->
+  <div class="section-divider mx-8"></div>
+
+  <!-- Topics -->
+  <section class="py-16">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-10 fade-in">
+        <span class="s-tag-gold">Topics</span>
+        <h2 class="font-display font-bold text-2xl text-s-text mt-3">
+          What I write about
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        {categories.map((cat, i) => (
+          <div class="glass-card rounded-lg p-5 fade-in" style={`transition-delay: ${i * 0.1}s`}>
+            <h3 class="font-display font-semibold text-s-text mb-2">{cat.name}</h3>
+            <p class="text-s-muted text-sm leading-relaxed">{cat.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section divider -->
+  <div class="section-divider mx-8"></div>
+
+  <!-- Writing / Posts -->
+  <section id="writing" class="py-16">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Section header -->
+      <div class="mb-10 fade-in">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="s-tag">Writing</span>
+          <div class="h-px flex-1 bg-gradient-to-r from-s-emerald/20 to-transparent max-w-xs"></div>
+        </div>
+        <h2 class="font-display font-bold text-2xl sm:text-3xl text-s-text">
+          Latest <span class="gradient-text">Notes</span>
+        </h2>
+        <p class="text-s-muted mt-2 text-sm max-w-md">
+          Unfiltered thoughts on technology, markets, and existence.
+        </p>
+      </div>
+
+      <!-- Post list -->
+      <div class="space-y-4">
+        {posts.map((post, i) => (
+          <article class="glass-card rounded-lg p-6 fade-in" style={`transition-delay: ${i * 0.08}s`}>
+            <div class="flex flex-col sm:flex-row sm:items-start gap-4">
+              <!-- Date + read time -->
+              <div class="flex-shrink-0 text-s-muted font-mono text-xs sm:w-32 sm:text-right sm:pt-1">
+                <div>{new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</div>
+                <div class="mt-0.5 text-s-muted/60">{post.readTime}</div>
+              </div>
+
+              <!-- Content -->
+              <div class="flex-1 min-w-0">
+                <div class="flex flex-wrap gap-1.5 mb-2">
+                  {post.tags.map(tag => (
+                    <span class="s-tag">{tag}</span>
+                  ))}
+                </div>
+                <h3 class="font-display font-bold text-lg text-s-text mb-1 leading-tight">
+                  {post.title}
+                </h3>
+                {post.subtitle && (
+                  <p class="text-s-emerald text-sm font-medium mb-2">{post.subtitle}</p>
+                )}
+                <p class="text-s-muted text-sm leading-relaxed mb-3 line-clamp-2">
+                  {post.excerpt}
+                </p>
+                <a
+                  href={`/blog/${post.slug}`}
+                  class="inline-flex items-center gap-1.5 text-s-emerald text-sm font-medium hover:gap-2.5 transition-all group"
+                >
+                  Read
+                  <svg class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <!-- Empty state hint for future posts -->
+      <p class="text-s-muted text-xs font-mono mt-6 text-center opacity-50">
+        // more posts coming — this is just the beginning
+      </p>
+    </div>
+  </section>
+
+  <!-- Section divider -->
+  <div class="section-divider mx-8"></div>
+
+  <!-- About teaser -->
+  <section id="about" class="py-16">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="glass-card rounded-xl p-8 lg:p-12 fade-in animated-border">
+        <div class="max-w-2xl">
+          <span class="s-tag-gold mb-4 inline-block">About</span>
+          <h2 class="font-display font-bold text-2xl sm:text-3xl text-s-text mb-5">
+            Who is <span class="gradient-text">Strugen</span>?
+          </h2>
+          <div class="space-y-4 text-s-muted text-sm leading-relaxed">
+            <p>
+              My name is Jhonatan Serna. I studied physics, ended up in banking, and spend most of my free time thinking about technology, markets, and the nature of existence.
+            </p>
+            <p>
+              This blog is a personal archive. I write to think clearly, to remember what I've learned, and to leave something behind. If you're reading this, we probably share some of the same questions.
+            </p>
+          </div>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="/about" class="btn-primary">
+              Read more about me
+            </a>
+            <a href="/contact" class="btn-outline">
+              Get in touch
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

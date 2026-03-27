@@ -1,0 +1,358 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Contact | Strugen"
+  description="Get in touch with Jhonatan Serna. Also find ways to support the writing."
+>
+  <section class="py-16">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Breadcrumb -->
+      <nav class="flex items-center gap-2 text-s-muted text-xs mb-10 font-mono">
+        <a href="/" class="hover:text-s-emerald transition-colors">Home</a>
+        <span>/</span>
+        <span class="text-s-muted-light">Contact</span>
+      </nav>
+
+      <!-- Header -->
+      <div class="mb-10 fade-in">
+        <span class="s-tag mb-4 inline-block">Contact</span>
+        <h1 class="font-display font-bold text-4xl sm:text-5xl text-s-text leading-tight mb-4">
+          Get in <span class="gradient-text">Touch</span>
+        </h1>
+        <p class="text-s-muted text-lg leading-relaxed max-w-xl">
+          If something I've written resonates with you, or you want to push back on something — I'd genuinely like to hear from you.
+        </p>
+      </div>
+
+      <div class="section-divider mb-10"></div>
+
+      <!-- Contact form -->
+      <div class="glass-card rounded-xl p-6 sm:p-8 mb-8 fade-in" style="transition-delay: 0.1s">
+        <h2 class="font-display font-semibold text-s-text text-lg mb-6">Send a message</h2>
+        <form
+          id="contact-form"
+          action="https://formspree.io/f/xnjoarel"
+          method="POST"
+          class="space-y-5"
+        >
+          <input type="hidden" name="_subject" value="Message from strugen.com" />
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label for="name" class="block text-s-muted text-xs font-mono uppercase tracking-widest mb-2">Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Your name"
+                required
+                class="s-input"
+              />
+            </div>
+            <div>
+              <label for="email" class="block text-s-muted text-xs font-mono uppercase tracking-widest mb-2">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="your@email.com"
+                required
+                class="s-input"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label for="subject" class="block text-s-muted text-xs font-mono uppercase tracking-widest mb-2">Subject</label>
+            <input
+              type="text"
+              id="subject"
+              name="subject"
+              placeholder="What's on your mind?"
+              class="s-input"
+            />
+          </div>
+
+          <div>
+            <label for="message" class="block text-s-muted text-xs font-mono uppercase tracking-widest mb-2">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              placeholder="Write your message here..."
+              required
+              class="s-input resize-none"
+            ></textarea>
+          </div>
+
+          <div class="flex items-center gap-4">
+            <button type="submit" id="submit-btn" class="btn-primary">
+              Send message
+            </button>
+            <div id="form-success" class="hidden text-s-emerald text-sm">✓ Message sent!</div>
+            <div id="form-error" class="hidden text-red-400 text-sm">✗ Something went wrong. Try emailing directly.</div>
+          </div>
+        </form>
+      </div>
+
+      <!-- Direct contact -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12 fade-in" style="transition-delay: 0.2s">
+        <a href="mailto:strugen@proton.me" class="glass-card rounded-lg p-5 flex items-center gap-4 group">
+          <div class="w-9 h-9 rounded-lg bg-s-emerald/10 border border-s-emerald/20 flex items-center justify-center flex-shrink-0 group-hover:bg-s-emerald/15 transition-colors">
+            <svg class="w-4 h-4 text-s-emerald" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <div>
+            <p class="text-s-text text-sm font-medium group-hover:text-s-emerald transition-colors">Email</p>
+            <p class="text-s-muted text-xs font-mono">strugen@proton.me</p>
+          </div>
+        </a>
+
+        <a href="https://x.com/strugen_eth" target="_blank" rel="noopener noreferrer" class="glass-card rounded-lg p-5 flex items-center gap-4 group">
+          <div class="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0 group-hover:bg-white/8 transition-colors">
+            <svg class="w-4 h-4 text-s-muted group-hover:text-s-text transition-colors" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            </svg>
+          </div>
+          <div>
+            <p class="text-s-text text-sm font-medium group-hover:text-s-text transition-colors">X / Twitter</p>
+            <p class="text-s-muted text-xs font-mono">@strugen_eth</p>
+          </div>
+        </a>
+
+        <a href="https://instagram.com/strugen" target="_blank" rel="noopener noreferrer" class="glass-card rounded-lg p-5 flex items-center gap-4 group">
+          <div class="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0 group-hover:bg-white/8 transition-colors">
+            <svg class="w-4 h-4 text-s-muted group-hover:text-s-text transition-colors" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+          </div>
+          <div>
+            <p class="text-s-text text-sm font-medium group-hover:text-s-text transition-colors">Instagram</p>
+            <p class="text-s-muted text-xs font-mono">@strugen</p>
+          </div>
+        </a>
+
+        <a href="https://app.ens.domains/strugen.eth" target="_blank" rel="noopener noreferrer" class="glass-card rounded-lg p-5 flex items-center gap-4 group">
+          <div class="w-9 h-9 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center flex-shrink-0 group-hover:bg-indigo-500/15 transition-colors">
+            <svg class="w-4 h-4 text-indigo-400" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M11.944 17.97L4.58 13.62 11.943 24l7.37-10.38-7.372 4.35h.003zM12.056 0L4.69 12.223l7.365 4.354 7.365-4.35L12.056 0z"/>
+            </svg>
+          </div>
+          <div>
+            <p class="text-s-text text-sm font-medium group-hover:text-s-text transition-colors">ENS / Ethereum</p>
+            <p class="text-s-muted text-xs font-mono">strugen.eth</p>
+          </div>
+        </a>
+      </div>
+
+      <!-- ─── Support / Donate Section ─── -->
+      <div class="section-divider mb-10"></div>
+
+      <div class="fade-in" style="transition-delay: 0.3s">
+        <div class="mb-6">
+          <span class="s-tag-gold mb-3 inline-block">Support</span>
+          <h2 class="font-display font-bold text-2xl text-s-text mb-2">
+            Support the <span class="gradient-text">writing</span>
+          </h2>
+          <p class="text-s-muted text-sm leading-relaxed max-w-lg">
+            This blog is independent and ad-free. If you find value in what I write, you can support it directly. Any amount helps keep this going.
+          </p>
+        </div>
+
+        <div class="glass-card rounded-xl p-6 sm:p-8 animated-border">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+            <!-- Left: payment options -->
+            <div class="space-y-4">
+
+              <!-- BTC -->
+              <div>
+                <p class="text-s-muted text-xs font-mono uppercase tracking-widest mb-2">Bitcoin</p>
+                <div class="flex items-center gap-2 bg-s-dark/60 border border-s-border rounded-lg p-3">
+                  <code id="btc-address" class="text-s-emerald text-xs font-mono flex-1 break-all leading-relaxed">bc1qtszvlsf3p8va3dglptev59t6vjlvg62mxg9g6x</code>
+                  <button
+                    onclick="copyBTC()"
+                    class="flex-shrink-0 text-s-muted hover:text-s-emerald transition-colors p-1"
+                    title="Copy BTC address"
+                    aria-label="Copy BTC address"
+                  >
+                    <svg id="btc-copy-icon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                    </svg>
+                    <svg id="btc-check-icon" class="w-4 h-4 hidden text-s-emerald" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                    </svg>
+                  </button>
+                </div>
+                <p id="btc-feedback" class="text-s-emerald text-xs mt-1 hidden">✓ Copied!</p>
+              </div>
+
+              <!-- Lightning -->
+              <div class="flex items-center gap-3 bg-s-dark/40 border border-yellow-400/15 rounded-lg px-3 py-2.5">
+                <svg class="w-4 h-4 text-yellow-400 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M13 2L4.5 13.5H11L10 22L19.5 10.5H13L13 2Z"/>
+                </svg>
+                <div class="flex-1 min-w-0">
+                  <p class="text-yellow-400 text-xs font-mono font-medium">Lightning</p>
+                  <p class="text-s-muted text-xs font-mono truncate">motivationinvigorating898833@getalby.com</p>
+                </div>
+                <button onclick="copyLightning()" class="flex-shrink-0 text-s-muted hover:text-yellow-400 transition-colors p-1" title="Copy Lightning address">
+                  <svg id="ln-copy-icon" class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                  </svg>
+                  <svg id="ln-check-icon" class="w-3.5 h-3.5 hidden text-s-emerald" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                  </svg>
+                </button>
+              </div>
+
+              <!-- ENS -->
+              <div class="flex items-center gap-3 bg-s-dark/40 border border-indigo-500/15 rounded-lg px-3 py-2.5">
+                <svg class="w-4 h-4 text-indigo-400 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M11.944 17.97L4.58 13.62 11.943 24l7.37-10.38-7.372 4.35h.003zM12.056 0L4.69 12.223l7.365 4.354 7.365-4.35L12.056 0z"/>
+                </svg>
+                <div class="flex-1 min-w-0">
+                  <p class="text-indigo-400 text-xs font-mono font-medium">Ethereum / ENS</p>
+                  <p class="text-s-muted text-xs font-mono">strugen.eth</p>
+                </div>
+                <button onclick="copyENS()" class="flex-shrink-0 text-s-muted hover:text-indigo-400 transition-colors p-1" title="Copy ENS name">
+                  <svg id="ens-copy-icon" class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                  </svg>
+                  <svg id="ens-check-icon" class="w-3.5 h-3.5 hidden text-s-emerald" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                  </svg>
+                </button>
+              </div>
+
+              <!-- Ko-fi -->
+              <a href="https://ko-fi.com/strugen" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 bg-s-dark/40 border border-s-border rounded-lg px-3 py-2.5 hover:border-s-emerald/20 transition-colors group">
+                <svg class="w-4 h-4 text-s-muted group-hover:text-s-emerald flex-shrink-0 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+                </svg>
+                <div class="flex-1 min-w-0">
+                  <p class="text-s-muted-light text-xs font-mono font-medium group-hover:text-s-text transition-colors">Ko-fi</p>
+                  <p class="text-s-muted text-xs font-mono">Credit card · PayPal · 0% fee</p>
+                </div>
+                <svg class="w-3.5 h-3.5 text-s-muted opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                </svg>
+              </a>
+
+              <!-- Donate button -->
+              <div class="pt-2">
+                <a href="https://ko-fi.com/strugen" target="_blank" rel="noopener noreferrer" class="btn-primary w-full justify-center">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+                  </svg>
+                  Support via Ko-fi
+                </a>
+              </div>
+            </div>
+
+            <!-- Right: BTC QR -->
+            <div class="flex flex-col items-center justify-center gap-4 py-4">
+              <p class="text-s-muted text-xs font-mono uppercase tracking-widest">Scan to donate BTC</p>
+              <div class="p-3 rounded-xl bg-s-black border border-s-border">
+                <img
+                  src="/images/btc-qr.svg"
+                  alt="Bitcoin donation QR code"
+                  class="w-40 h-40"
+                  loading="lazy"
+                />
+              </div>
+              <p class="text-s-muted text-xs font-mono text-center max-w-[180px] leading-relaxed">
+                Any amount helps keep this independent
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</Layout>
+
+<script>
+  function copyBTC() {
+    const address = document.getElementById('btc-address')?.textContent?.trim();
+    if (!address) return;
+    navigator.clipboard.writeText(address).then(() => {
+      document.getElementById('btc-copy-icon')?.classList.add('hidden');
+      document.getElementById('btc-check-icon')?.classList.remove('hidden');
+      document.getElementById('btc-feedback')?.classList.remove('hidden');
+      setTimeout(() => {
+        document.getElementById('btc-copy-icon')?.classList.remove('hidden');
+        document.getElementById('btc-check-icon')?.classList.add('hidden');
+        document.getElementById('btc-feedback')?.classList.add('hidden');
+      }, 2500);
+    });
+  }
+
+  function copyLightning() {
+    navigator.clipboard.writeText('motivationinvigorating898833@getalby.com').then(() => {
+      document.getElementById('ln-copy-icon')?.classList.add('hidden');
+      document.getElementById('ln-check-icon')?.classList.remove('hidden');
+      setTimeout(() => {
+        document.getElementById('ln-copy-icon')?.classList.remove('hidden');
+        document.getElementById('ln-check-icon')?.classList.add('hidden');
+      }, 2500);
+    });
+  }
+
+  function copyENS() {
+    navigator.clipboard.writeText('strugen.eth').then(() => {
+      document.getElementById('ens-copy-icon')?.classList.add('hidden');
+      document.getElementById('ens-check-icon')?.classList.remove('hidden');
+      setTimeout(() => {
+        document.getElementById('ens-copy-icon')?.classList.remove('hidden');
+        document.getElementById('ens-check-icon')?.classList.add('hidden');
+      }, 2500);
+    });
+  }
+
+  (window as any).copyBTC = copyBTC;
+  (window as any).copyLightning = copyLightning;
+  (window as any).copyENS = copyENS;
+
+  // Contact form
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const btn = document.getElementById('submit-btn') as HTMLButtonElement;
+  const successMsg = document.getElementById('form-success');
+  const errorMsg = document.getElementById('form-error');
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!btn) return;
+
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' },
+      });
+
+      if (response.ok) {
+        form.reset();
+        successMsg?.classList.remove('hidden');
+        errorMsg?.classList.add('hidden');
+        btn.textContent = '✓ Sent!';
+      } else {
+        throw new Error('Failed');
+      }
+    } catch {
+      errorMsg?.classList.remove('hidden');
+      successMsg?.classList.add('hidden');
+      btn.disabled = false;
+      btn.textContent = 'Send message';
+    }
+  });
+</script>
