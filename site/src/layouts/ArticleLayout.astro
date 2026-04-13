@@ -11,6 +11,7 @@ interface Props {
   readTime: string;
   tags: string[];
   author?: string;
+  draft?: boolean;
 }
 
 const {
@@ -23,6 +24,7 @@ const {
   readTime,
   tags,
   author = 'Jhonatan Serna',
+  draft = false,
 } = Astro.props;
 
 const formattedDate = new Date(date).toLocaleDateString('en-US', {
@@ -43,6 +45,14 @@ const formattedDate = new Date(date).toLocaleDateString('en-US', {
     tags,
   }}
 >
+  {draft && (
+    <>
+      <meta name="robots" content="noindex, nofollow" slot="head" />
+      <div class="fixed top-0 left-0 right-0 z-50 bg-s-emerald/90 text-s-black text-center text-xs font-mono py-1 tracking-widest uppercase">
+        Draft — not published
+      </div>
+    </>
+  )}
   <!-- Reading progress bar -->
   <div id="reading-progress" style="width: 0%"></div>
 
