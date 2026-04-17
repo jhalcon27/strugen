@@ -1,0 +1,3 @@
+# Redirects for Strugen
+https://jhonatanserna.com/* https://strugen.com/:splat 301!
+http://jhonatanserna.com/* https://strugen.com/:splat 301!
