@@ -16,7 +16,7 @@ interface Props {
 
 const {
   title,
-  description = 'Strugen — A personal blog by Jhonatan Serna. Notes on technology, finance, philosophy, and what it means to be alive for less than 100 years.',
+  description = 'Strugen — Jhonatan Serna. Notes on technology, finance, philosophy, and what it means to be alive.',
   image = '/images/og-main.jpg',
   type = 'website',
   canonicalURL = Astro.url.href,
@@ -124,7 +124,7 @@ const fullTitle = title.includes('Strugen') ? title : `${title} | Strugen`;
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="/favicon.png" />
@@ -133,80 +133,61 @@ const fullTitle = title.includes('Strugen') ? title : `${title} | Strugen`;
     <!-- Analytics -->
     <script defer src="https://cloud.umami.is/script.js" data-website-id="bc76f642-a6c7-431d-900a-b0f04726a987"></script>
   </head>
-  <body class="grid-bg min-h-screen">
+  <body class="min-h-screen flex flex-col justify-between">
 
     <!-- Navigation -->
     <nav class="navbar-blur fixed top-0 left-0 right-0 z-50">
-      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6">
         <div class="flex items-center justify-between h-14">
           <!-- Logo -->
-          <a href="/" class="flex items-center gap-2 group">
-            <span class="font-display font-bold text-lg text-s-text group-hover:text-s-emerald transition-colors tracking-tight">strugen</span>
-            <span class="text-s-emerald font-mono text-lg leading-none">.</span>
+          <a href="/" class="flex items-center gap-1 group">
+            <span class="font-sans font-bold text-lg text-s-text group-hover:text-s-emerald transition-colors tracking-tight">strugen</span>
+            <span class="text-s-emerald font-sans text-lg leading-none">.</span>
           </a>
 
-          <!-- Desktop Nav -->
-          <div class="hidden md:flex items-center gap-8">
-            <a href="/#writing" class="text-s-muted hover:text-s-text transition-colors text-sm font-medium tracking-wide">Writing</a>
-            <a href="/about" class="text-s-muted hover:text-s-text transition-colors text-sm font-medium tracking-wide">About</a>
-            <a href="/contact" class="text-s-muted hover:text-s-emerald transition-colors text-sm font-medium tracking-wide">Contact</a>
-          </div>
-
-          <!-- Mobile menu button -->
-          <button id="mobile-menu-btn" class="md:hidden text-s-muted hover:text-s-text transition-colors p-2" aria-label="Toggle menu">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-              <path id="close-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-            </svg>
-          </button>
-        </div>
-
-        <!-- Mobile Nav -->
-        <div id="mobile-menu" class="hidden md:hidden pb-4 border-t border-s-border mt-2 pt-4">
-          <div class="flex flex-col gap-4">
-            <a href="/#writing" class="text-s-muted hover:text-s-text transition-colors text-sm font-medium">Writing</a>
-            <a href="/about" class="text-s-muted hover:text-s-text transition-colors text-sm font-medium">About</a>
-            <a href="/contact" class="text-s-muted hover:text-s-emerald transition-colors text-sm font-medium">Contact</a>
+          <!-- Nav Links -->
+          <div class="flex items-center gap-6 font-sans text-sm">
+            <a href="/about" class="text-s-muted hover:text-s-text transition-colors">About</a>
+            <a href="/contact" class="text-s-muted hover:text-s-emerald transition-colors">Contact</a>
           </div>
         </div>
       </div>
     </nav>
 
     <!-- Main content -->
-    <main class="pt-14">
+    <main class="pt-14 flex-grow">
       <slot />
     </main>
 
     <!-- Footer -->
-    <footer class="border-t border-s-border mt-20">
-      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <footer class="border-t border-s-border mt-20 bg-s-dark">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 py-10">
         <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <!-- Brand + tagline -->
           <div>
-            <a href="/" class="font-display font-bold text-base text-s-text hover:text-s-emerald transition-colors">strugen</a>
-            <p class="text-s-muted text-xs mt-1 max-w-xs leading-relaxed">
-              Notes on technology, finance, and philosophy. Here for less than 100 years — documenting the ride.
+            <a href="/" class="font-sans font-bold text-base text-s-text hover:text-s-emerald transition-colors">strugen</a>
+            <p class="text-s-muted text-xs mt-1 max-w-xs leading-relaxed font-sans">
+              Notes on technology, finance, and philosophy. Documenting the ride.
             </p>
           </div>
 
           <!-- Links -->
-          <div class="flex flex-col sm:flex-row gap-6 sm:gap-10">
+          <div class="flex flex-col sm:flex-row gap-6 sm:gap-10 font-sans text-xs">
             <div class="flex flex-col gap-2">
-              <a href="/#writing" class="text-s-muted hover:text-s-text transition-colors text-xs">Writing</a>
-              <a href="/about" class="text-s-muted hover:text-s-text transition-colors text-xs">About</a>
-              <a href="/contact" class="text-s-muted hover:text-s-text transition-colors text-xs">Contact</a>
+              <a href="/about" class="text-s-muted hover:text-s-text transition-colors">About</a>
+              <a href="/contact" class="text-s-muted hover:text-s-text transition-colors">Contact</a>
             </div>
             <div class="flex flex-col gap-2">
-              <a href="mailto:strugen@proton.me" class="text-s-muted hover:text-s-emerald transition-colors text-xs">strugen@proton.me</a>
-              <a href="https://x.com/strugen_eth" target="_blank" rel="noopener noreferrer" class="text-s-muted hover:text-s-text transition-colors text-xs">X / Twitter</a>
-              <a href="https://instagram.com/strugen" target="_blank" rel="noopener noreferrer" class="text-s-muted hover:text-s-text transition-colors text-xs">Instagram</a>
+              <a href="mailto:strugen@proton.me" class="text-s-muted hover:text-s-emerald transition-colors">strugen@proton.me</a>
+              <a href="https://x.com/strugen_eth" target="_blank" rel="noopener noreferrer" class="text-s-muted hover:text-s-text transition-colors">X / Twitter</a>
+              <a href="https://instagram.com/strugen" target="_blank" rel="noopener noreferrer" class="text-s-muted hover:text-s-text transition-colors">Instagram</a>
             </div>
           </div>
         </div>
 
         <div class="section-divider my-6"></div>
 
-        <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-3 font-sans">
           <p class="text-s-muted text-xs">
             &copy; {new Date().getFullYear()} Jhonatan Serna. All rights reserved.
           </p>
@@ -217,29 +198,6 @@ const fullTitle = title.includes('Strugen') ? title : `${title} | Strugen`;
         </div>
       </div>
     </footer>
-
-    <!-- Mobile menu script -->
-    <script>
-      const btn = document.getElementById('mobile-menu-btn');
-      const menu = document.getElementById('mobile-menu');
-      const menuIcon = document.getElementById('menu-icon');
-      const closeIcon = document.getElementById('close-icon');
-
-      btn?.addEventListener('click', () => {
-        const isOpen = !menu?.classList.contains('hidden');
-        menu?.classList.toggle('hidden');
-        menuIcon?.classList.toggle('hidden', !isOpen);
-        closeIcon?.classList.toggle('hidden', isOpen);
-      });
-
-      menu?.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          menu.classList.add('hidden');
-          menuIcon?.classList.remove('hidden');
-          closeIcon?.classList.add('hidden');
-        });
-      });
-    </script>
 
     <!-- Scroll animation observer -->
     <script>
